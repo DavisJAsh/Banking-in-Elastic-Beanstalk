@@ -19,10 +19,8 @@ downtime or latency, it could also be more costly. Using a managed
 service may not have the functionality to integrate third-party plugins
 or apps if needed.
 
-**  
-Troubleshooting:**
 
- 
+**Troubleshooting:**
 
 - **I cannot exit systemctl status after checking the status of
   Jenkins**
@@ -46,8 +44,7 @@ lag between communications.*
 
 *Check the personal access token, this can only be seen once, so if you
 do not have it delete the old token for security purposes and create a
-new one to re-connect.  
-*
+new one to re-connect.*
 
 *Check whether the repository is private or public. Private repos may
 require additional configuration.*
@@ -65,25 +62,23 @@ require additional configuration.*
   downloaded directly from the github repo is not sufficient. UnZip and
   the re-ZIP the files using the native system compression (i.e. select
   all files within the folder, right-click, select “compress”) method
-  before uploading to AWS.  
-  *
+  before uploading to AWS.*
+
 
 **Draw.IO:**
 
 <img src="./media/image1.png" style="width:6.5in;height:7.14375in" />**  
-  
-Steps:**
 
- 
+  
+**Steps:**
 
 Below are the steps taken to create this banking app running Jenkins in
 AWS Elastic Beanstalk.
 
 <img src="./media/image2.png" style="width:1.91667in;height:2.14375in"
-alt="New repository Import repositor Fork New codespace New gist " />**Clone
-the Repository:**
+alt="New repository Import repositor Fork New codespace New gist " />
 
- 
+**Clone the Repository:**
 
 1.  Copied the link to clone the repository from the Kura Github:  
     [<u>https://github.com/kura-labs-org/C5-Deployment-Workload-1.git</u>](https://github.com/kura-labs-org/C5-Deployment-Workload-1.git)
@@ -97,9 +92,7 @@ the Repository:**
     repository.
 
  
-
-**Create an EC2:  
-** 
+**Create an EC2:** 
 
 1.  Navigate to the AWS EC2 Dashboard. Create a "t2.micro" Ubuntu EC2
     instance with the following security group settings:
@@ -138,6 +131,7 @@ alt="Firewall (security groups) Info A security group is a set of firewall rules
 <img src="./media/image4.png" style="width:3.29545in;height:3.44403in"
 alt="Create key pair Key pair name Key pairs allow you to connect to your instance securely. Enterkeypairname ssh-access&amp;jenkins The name can include up to 255 ASCII characters. It can&#39;t include leading or traili Key pair type O RSA RSA encrypted private and public key pair Private key file f O .pem For use with OpenSSH o .ppk For use with PuTTY o ED25519 ED25519 encrypted key pair " />
 
+
 **Install Jenkins on the EC2:**  
  
 
@@ -174,9 +168,9 @@ alt="Create key pair Key pair name Key pairs allow you to connect to your instan
 <img src="./media/image6.png" style="width:6.5in;height:4.46458in"
 alt="aws O EC2 o services Services Q Search restarted. [Option+S] is host. 4 o N. need to be o containers need to be restarted. o user sessions are running outdated binaries o VM guests are running outdated hypervisor (qemu) binaries o sudo systemctl start jenkins sudo s stemctl status •enkins jenkins oaded : Active : Maxn Tasks : Memory : CPU : CGroup : Jul 29 00:16: Jul 29 00:16: Jul 29 00:16: Ins Continuous Integration Server loaded ( enabled; preset : active (running) since Mon 2024—07—29 00:17:10 UTC; 38s ago ava 42 (limit: 11 336.1M (peak: 350.5M) 48.150s / system. slice/ j enkins . service enabled ) 2851 /usr/bin/java —Djava.awt.headless=true —jar /usr/share/java/jenkins . war ——webr Jul 29 ip-172-31-34-144 jenkins[2851]: c4f84bd659524fa589b769cb143f8134 32 ip—172—31—34—144 jenkins[2851]: This may also be found at: /var/lib/jenkins/secret 3 2 —34—144 : * jenkins . service — Jenkins Continuous Integration Server Loaded : Active : Main PID: Tasks : Memory : CPU : CGroup : loaded ( enabled; preset: enabled) active (running) since Mon 2024—07—29 00:17:10 UTC; 38s ago 2851 (java) 42 (limit: 1130) 336.1M (peak: 350.5M) 48.150s /system. slice/ j enkins . service " />
 
+
 **Login to Jenkins:**  
  
-
 1.  Navigate to AWS to locate the "public Ipv4 address" of the EC2
     instance created for the banking app. The IP information is located
     under the instance summary.  
@@ -367,9 +361,4 @@ alt="Add permissions Info (3/945) nfo Permissions policie Choose one or more pol
 
 2.  Click "Submit" following the review page. Click the link in the
     domain to confirm app has deployed.
-
- 
-
->  
-
- 
+>
