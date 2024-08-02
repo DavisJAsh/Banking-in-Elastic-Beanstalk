@@ -19,10 +19,8 @@ downtime or latency, it could also be more costly. Using a managed
 service may not have the functionality to integrate third-party plugins
 or apps if needed.
 
-**  
-Troubleshooting:**
 
- 
+**Troubleshooting:**
 
 - **I cannot exit systemctl status after checking the status of
   Jenkins**
@@ -46,8 +44,7 @@ lag between communications.*
 
 *Check the personal access token, this can only be seen once, so if you
 do not have it delete the old token for security purposes and create a
-new one to re-connect.  
-*
+new one to re-connect.*
 
 *Check whether the repository is private or public. Private repos may
 require additional configuration.*
@@ -67,11 +64,8 @@ require additional configuration.*
   all files within the folder, right-click, select “compress”) method
   before uploading to AWS.*
 
-**  
-  
-Steps:**
 
- 
+**Steps:**
 
 Below are the steps taken to create this banking app running Jenkins in
 AWS Elastic Beanstalk.
@@ -80,7 +74,6 @@ AWS Elastic Beanstalk.
 alt="New repository Import repositor Fork New codespace New gist " />**Clone
 the Repository:**
 
- 
 
 1.  Copied the link to clone the repository from the Kura Github:  
     [<u>https://github.com/kura-labs-org/C5-Deployment-Workload-1.git</u>](https://github.com/kura-labs-org/C5-Deployment-Workload-1.git)
@@ -95,8 +88,7 @@ the Repository:**
 
  
 
-**Create an EC2:  
-** 
+**Create an EC2:** 
 
 1.  Navigate to the AWS EC2 Dashboard. Create a "t2.micro" Ubuntu EC2
     instance with the following security group settings:
