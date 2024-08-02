@@ -19,8 +19,10 @@ downtime or latency, it could also be more costly. Using a managed
 service may not have the functionality to integrate third-party plugins
 or apps if needed.
 
+**  
+Troubleshooting:**
 
-**Troubleshooting:**
+ 
 
 - **I cannot exit systemctl status after checking the status of
   Jenkins**
@@ -44,7 +46,8 @@ lag between communications.*
 
 *Check the personal access token, this can only be seen once, so if you
 do not have it delete the old token for security purposes and create a
-new one to re-connect.*
+new one to re-connect.  
+*
 
 *Check whether the repository is private or public. Private repos may
 require additional configuration.*
@@ -62,18 +65,25 @@ require additional configuration.*
   downloaded directly from the github repo is not sufficient. UnZip and
   the re-ZIP the files using the native system compression (i.e. select
   all files within the folder, right-click, select “compress”) method
-  before uploading to AWS.*
+  before uploading to AWS.  
+  *
 
+**Draw.IO:**
 
-**Steps:**
+<img src="./media/image1.png" style="width:6.5in;height:7.14375in" />**  
+  
+Steps:**
+
+ 
 
 Below are the steps taken to create this banking app running Jenkins in
 AWS Elastic Beanstalk.
 
-<img src="./media/image1.png" style="width:1.91667in;height:2.14375in"
+<img src="./media/image2.png" style="width:1.91667in;height:2.14375in"
 alt="New repository Import repositor Fork New codespace New gist " />**Clone
 the Repository:**
 
+ 
 
 1.  Copied the link to clone the repository from the Kura Github:  
     [<u>https://github.com/kura-labs-org/C5-Deployment-Workload-1.git</u>](https://github.com/kura-labs-org/C5-Deployment-Workload-1.git)
@@ -88,7 +98,8 @@ the Repository:**
 
  
 
-**Create an EC2:** 
+**Create an EC2:  
+** 
 
 1.  Navigate to the AWS EC2 Dashboard. Create a "t2.micro" Ubuntu EC2
     instance with the following security group settings:
@@ -121,10 +132,10 @@ the Repository:**
 > it from the "select existing security group"  
 > *
 
-<img src="./media/image2.png" style="width:5.21994in;height:2.02273in"
+<img src="./media/image3.png" style="width:5.21994in;height:2.02273in"
 alt="Firewall (security groups) Info A security group is a set of firewall rules that control the traffic for your instance. Add rules to allow specific o Create security group Common security groups Info Select security groups default VPC: v O Select existing security group ces. sg-OOd7a30edafabb1c6 2b2b54 " />
 
-<img src="./media/image3.png" style="width:3.29545in;height:3.44403in"
+<img src="./media/image4.png" style="width:3.29545in;height:3.44403in"
 alt="Create key pair Key pair name Key pairs allow you to connect to your instance securely. Enterkeypairname ssh-access&amp;jenkins The name can include up to 255 ASCII characters. It can&#39;t include leading or traili Key pair type O RSA RSA encrypted private and public key pair Private key file f O .pem For use with OpenSSH o .ppk For use with PuTTY o ED25519 ED25519 encrypted key pair " />
 
 **Install Jenkins on the EC2:**  
@@ -155,12 +166,12 @@ alt="Create key pair Key pair name Key pairs allow you to connect to your instan
 
 - *sudo systemctl status Jenkins*
 
-- <img src="./media/image4.png" style="width:6.5in;height:3.74306in" />
+- <img src="./media/image5.png" style="width:6.5in;height:3.74306in" />
 
 2.  After the final command (status) Jenkins should be active, Enter "q"
     to quit the systemctl status output.
 
-<img src="./media/image5.png" style="width:6.5in;height:4.46458in"
+<img src="./media/image6.png" style="width:6.5in;height:4.46458in"
 alt="aws O EC2 o services Services Q Search restarted. [Option+S] is host. 4 o N. need to be o containers need to be restarted. o user sessions are running outdated binaries o VM guests are running outdated hypervisor (qemu) binaries o sudo systemctl start jenkins sudo s stemctl status •enkins jenkins oaded : Active : Maxn Tasks : Memory : CPU : CGroup : Jul 29 00:16: Jul 29 00:16: Jul 29 00:16: Ins Continuous Integration Server loaded ( enabled; preset : active (running) since Mon 2024—07—29 00:17:10 UTC; 38s ago ava 42 (limit: 11 336.1M (peak: 350.5M) 48.150s / system. slice/ j enkins . service enabled ) 2851 /usr/bin/java —Djava.awt.headless=true —jar /usr/share/java/jenkins . war ——webr Jul 29 ip-172-31-34-144 jenkins[2851]: c4f84bd659524fa589b769cb143f8134 32 ip—172—31—34—144 jenkins[2851]: This may also be found at: /var/lib/jenkins/secret 3 2 —34—144 : * jenkins . service — Jenkins Continuous Integration Server Loaded : Active : Main PID: Tasks : Memory : CPU : CGroup : loaded ( enabled; preset: enabled) active (running) since Mon 2024—07—29 00:17:10 UTC; 38s ago 2851 (java) 42 (limit: 1130) 336.1M (peak: 350.5M) 48.150s /system. slice/ j enkins . service " />
 
 **Login to Jenkins:**  
@@ -171,7 +182,7 @@ alt="aws O EC2 o services Services Q Search restarted. [Option+S] is host. 4 o N
     under the instance summary.  
      
 
-> <img src="./media/image6.png" style="width:6.5in;height:2.93681in"
+> <img src="./media/image7.png" style="width:6.5in;height:2.93681in"
 > alt="Instance summary for i-Of93509cec00762ee (Bank Actions Updated about 1 hour ago Instance ID 61 i-Of93509cec00762ee (Banking) IPv6 address Public IPv4 address 61 54.152.222.99 | Instance state " />
 
  
@@ -192,28 +203,28 @@ alt="aws O EC2 o services Services Q Search restarted. [Option+S] is host. 4 o N
 - *sudo cat /var/lib/jenkins/secrets/initialAdminPassword  
   *
 
-> <img src="./media/image7.png" style="width:3.7197in;height:3.66128in"
+> <img src="./media/image8.png" style="width:3.7197in;height:3.66128in"
 > alt="Not Secure — 54.152.222.99 e Getting Started Unlock Jenkins To ensure Jenkins is securely set up by the administrator, a password has the log (not sure where to find it?) and this file on the server: /va r/ lib/ j enkins/sec rets/ initia IAdminPasswo rd Please copy the password from either location and paste it below. Administrator password " />
 
 4.  Install all the apps recommended by the community by clicking
     "Install Suggested Plugins". The following page will load and
     install all necessary files.
 
-> <img src="./media/image8.png" style="width:4.26515in;height:2.84116in"
+> <img src="./media/image9.png" style="width:4.26515in;height:2.84116in"
 > alt="Getting Started Customize Jenkins Plugins extend Jenkins with additional features to support n Install suggested plugins Install plugins the Jenkins community finds most useful. Select plugins install Select and install suitable for your n " />
 
 5.  When its complete, The Getting Started window will appear and
     require the first admin user be created. Create a user. Save and
     Continue.
 
-<img src="./media/image9.png" style="width:3.80303in;height:3.50318in"
+<img src="./media/image10.png" style="width:3.80303in;height:3.50318in"
 alt="Getting Started Create First Admin User Username adavis Password Strong Passworc Confirm password Strong Passworc Full name Ashleigh Davis E-mail address ashleigh.kuralabs@gmail.com " />
 
 6.  Make sure to confirm the Jenkins URL, the select "Save and Finish".
     Congrats! The Jenkins setup is complete. Click the "Start using
     Jenkins" button.
 
-<img src="./media/image10.png"
+<img src="./media/image11.png"
 style="width:4.87879in;height:2.00989in" />
 
 > **Create a Multi-Branch Pipeline:**  
@@ -228,8 +239,8 @@ style="width:4.87879in;height:2.00989in" />
     Click “+ Add” and select “Jenkins”.  
      
 
-<img src="./media/image11.png" style="width:2.67822in;height:2.38636in"
-alt="Branch Sources Add source Filter Git " /><img src="./media/image12.png" style="width:1.69569in;height:2.20794in"
+<img src="./media/image12.png" style="width:2.67822in;height:2.38636in"
+alt="Branch Sources Add source Filter Git " /><img src="./media/image13.png" style="width:1.69569in;height:2.20794in"
 alt="GitHub Credentials - none - + Add A Banking " />
 
 4.  Make sure under the Kind section that “Username with password” is
@@ -250,7 +261,7 @@ alt="GitHub Credentials - none - + Add A Banking " />
     (classic)". Select "read/write packages" permissions.  
      
 
-> <img src="./media/image13.png" style="width:6.5in;height:2.10417in" />
+> <img src="./media/image14.png" style="width:6.5in;height:2.10417in" />
 
 7.  Select the credentials you have created for Github from the dropdown
     menu then Add the URL of the repository in the "Repository HTTPS
@@ -258,7 +269,7 @@ alt="GitHub Credentials - none - + Add A Banking " />
       
     ***<u>NOTE:</u>*** Issues may occur if the Repository is private.
 
-<img src="./media/image14.png"
+<img src="./media/image15.png"
 style="width:4.87121in;height:2.53761in" />
 
 8.  Scroll down to the Build Configuration section, Make sure that the
@@ -267,7 +278,7 @@ style="width:4.87121in;height:2.53761in" />
 
 9.  Once the build finishes, the successful log will post.
 
-<img src="./media/image15.png"
+<img src="./media/image16.png"
 style="width:6.00758in;height:5.06087in" />
 
 > **Create IAM Roles & Permissions:**
@@ -279,7 +290,7 @@ style="width:6.00758in;height:5.06087in" />
     "Next". Then click "Next" again.  
      
 
-<img src="./media/image16.png" style="width:4.87121in;height:4.9753in"
+<img src="./media/image17.png" style="width:4.87121in;height:4.9753in"
 alt="Trusted entity type O AWS service Allow AWS services like EC2, Lambda, or others to perform actions in this account. O Web identity Allows users federated by the specified external web identity provider to assume this role to perform actions in this account. o Custom trust policy Create a custom trust policy to enable others to perform actions in this account. Use case o O AWS account Allow entities in other AWS accounts belonging to you or a 3rd party to perform actions in this account. SAML 2.0 federation Allow users federated with SAML 2.0 from a corporate directory to perform actions in this account. Allow an AWS service like EC2, Lambda, or others to perform actions in this account. Service or use case Elastic Beanstalk " />
 
  
@@ -288,7 +299,7 @@ alt="Trusted entity type O AWS service Allow AWS services like EC2, Lambda, or o
     "aws-elasticbeanstalk-service-role". Click "Create Rule", then Click
     "Create Role" once more for the second role.
 
-> <img src="./media/image17.png" style="width:5.53788in;height:2.46187in"
+> <img src="./media/image18.png" style="width:5.53788in;height:2.46187in"
 > alt="@ Role aws-elasticbeanstalk-service-role created. IAM &gt; Roles (6) Info Roles c An IAM role is an identity you can create that has specific permissions with credentials that are valid for short by entities that you trust. Q Search Role name " />
 
 3.  Select "AWS Service". Scroll down and select "EC2" from the dropdown
@@ -310,7 +321,7 @@ alt="Trusted entity type O AWS service Allow AWS services like EC2, Lambda, or o
         number of checked boxes located next to the Permissions Policies
         title \[ex. 3/945\]
 
-<img src="./media/image18.png" style="width:4.90909in;height:2.64703in"
+<img src="./media/image19.png" style="width:4.90909in;height:2.64703in"
 alt="Add permissions Info (3/945) nfo Permissions policie Choose one or more policies to attach to your new role. Q AWSElasticBeanstalkMulticontainerD X Policy name Filter by Type All types Type A 1 match AWSElasticBeanstalkMulticontainer... AWS managed " />
 
 1.  Enter "Elastic-EC2" as the role name. Scroll down and click "Create
